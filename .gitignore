@@ -1,0 +1,7 @@
+﻿.vscode
+.idea
+
+bin
+obj
+
+TodoBot.sln.DotSettings.user
