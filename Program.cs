@@ -10,7 +10,7 @@ IHost host = Host.CreateDefaultBuilder(args)
             .AddTypedClient<ITelegramBotClient>((httpClient, sp) =>
             {
                 var config = sp.GetConfiguration<BotConfiguration>();
-                var options = new TelegramBotClientOptions(config.BotToken);
+                var options = new TelegramBotClientOptions(config.Token);
                 return new TelegramBotClient(options, httpClient);
             });
 
@@ -32,5 +32,5 @@ internal class BotConfiguration
 {
     public static readonly string Configuration = "BotConfiguration";
 
-    public string BotToken { get; set; } = string.Empty;
+    public string Token { get; set; } = string.Empty;
 }

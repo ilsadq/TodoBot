@@ -1,7 +1,6 @@
 ﻿using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
-using TodoBot.Models;
 
 namespace TodoBot.Services;
 
@@ -25,7 +24,7 @@ public class TodoActionsService
         
         await _client.SendTextMessageAsync(
             chatId: message.Chat.Id,
-            text: $"*{message.Text}*",
+            text: message.Text,
             parseMode: ParseMode.Markdown,
             replyMarkup: new InlineKeyboardMarkup(new[]
             {
@@ -46,7 +45,7 @@ public class TodoActionsService
         
         await _client.SendTextMessageAsync(
             chatId: message.Chat.Id,
-            text: $"✏️ **{message.Text}**",
+            text: $"✏️ {message.Text}",
             parseMode: ParseMode.Markdown,
             cancellationToken: cancellationToken);
     }
